@@ -17,3 +17,6 @@ export type TItemBox = {
    image: string;
    event: Getter<void>;
 };
+export type TSwitch = {
+   title: string;
+};
