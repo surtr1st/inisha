@@ -8,26 +8,26 @@
 
 <script setup lang="ts">
 import { TButton } from '../types';
-import { colors, hoverColors } from '../configs';
+import { components } from '../configs';
 import { ref } from 'vue';
 const { color } = defineProps<Partial<TButton>>();
 
 const button = ref({
-   color: '',
+   background: '',
    hoverColor: '',
 });
 
 switch (color) {
    case 'primary':
       button.value = {
-         color: colors.primary,
-         hoverColor: hoverColors.primary,
+         background: components.background.primary,
+         hoverColor: components.hover.primary,
       };
       break;
    case 'secondary':
       button.value = {
-         color: colors.secondary,
-         hoverColor: hoverColors.secondary,
+         background: components.background.secondary,
+         hoverColor: components.hover.secondary,
       };
       break;
 }
@@ -39,7 +39,7 @@ switch (color) {
    min-width: 95px;
    max-width: 150px;
    height: 50px;
-   background: v-bind('button.color');
+   background: v-bind('button.background');
    border-radius: 10px;
    color: white;
    border: none;
