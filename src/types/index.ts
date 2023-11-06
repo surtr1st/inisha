@@ -19,4 +19,5 @@ export type TItemBox = {
 };
 export type TSwitch = {
    title: string;
+   onMark: EventHandler;
 };

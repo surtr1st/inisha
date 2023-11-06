@@ -1,7 +1,9 @@
 <template>
    <div class="switch-box">
       <label class="switch">
-         <input type="checkbox" />
+         <input
+            type="checkbox"
+            @change="onMark" />
          <span class="slider round"></span>
       </label>
       <h3>
