@@ -47,7 +47,7 @@ switch (color) {
    font-weight: 600;
    transition: all 250ms;
    padding: 0.7rem;
-   margin: 0.5rem;
+   margin: 0.5rem 0.5rem 0.5rem 0;
 }
 #i__btn:hover {
    cursor: pointer;
