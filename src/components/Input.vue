@@ -9,6 +9,7 @@ import { components } from '../configs';
 const input = ref({
    background: components.background.dark,
    hoverColor: components.hover.dark,
+   color: components.color.default,
 });
 </script>
 
@@ -20,7 +21,7 @@ input {
    border: none;
    outline: none;
    background: v-bind('input.background');
-   color: white;
+   color: v-bind('input.color');
    font-size: 18px;
    padding-left: 15px;
    transition: all 250ms;
