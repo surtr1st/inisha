@@ -1,7 +1,7 @@
 <template>
    <button
       id="i__btn"
-      class="">
+      :disabled="disabled">
       {{ title }}
    </button>
 </template>
@@ -10,27 +10,38 @@
 import { TButton } from '../types';
 import { components } from '../configs';
 import { ref } from 'vue';
-const { color } = defineProps<Partial<TButton>>();
+
+const { color, disabled } = defineProps<Partial<TButton>>();
 
 const button = ref({
    background: '',
    hoverColor: '',
+   color: components.color.default,
 });
 
-switch (color) {
-   case 'primary':
+function handleStyle() {
+   if (disabled) {
       button.value = {
-         background: components.background.primary,
-         hoverColor: components.hover.primary,
+         background: components.background.disabled,
+         hoverColor: components.background.disabled,
+         color: components.color.disabled,
       };
-      break;
-   case 'secondary':
-      button.value = {
-         background: components.background.secondary,
-         hoverColor: components.hover.secondary,
-      };
-      break;
+      return;
+   }
+
+   switch (color) {
+      case 'primary':
+         button.value.background = components.background.primary;
+         button.value.hoverColor = components.hover.primary;
+         break;
+      case 'secondary':
+         button.value.background = components.background.secondary;
+         button.value.hoverColor = components.hover.secondary;
+         break;
+   }
 }
+
+handleStyle();
 </script>
 
 <style scoped>
@@ -41,7 +52,7 @@ switch (color) {
    height: 50px;
    background: v-bind('button.background');
    border-radius: 10px;
-   color: white;
+   color: v-bind('button.color');
    border: none;
    font-size: 14px;
    font-weight: 600;
