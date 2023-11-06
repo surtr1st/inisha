@@ -4,7 +4,10 @@ const colors = {
    light: '#F1F1F1',
    dark: '#181818',
    darker: '#050505',
+   dark1: '#2F2F2F',
+   dark2: '#232323',
    disabled: '#050505',
+   danger: '#FF3939',
 };
 
 const hoverColors = {
