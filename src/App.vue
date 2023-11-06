@@ -1,52 +1,73 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import Greet from "./components/Greet.vue";
+import { ref } from 'vue';
+import Button from './components/Button.vue';
+import Input from './components/Input.vue';
+import Modal from './components/Modal.vue';
+import List from './components/List.vue';
+import Switch from './components/Switch.vue';
+import Assignments from './components/containers/Assignments.vue';
+import { TItemBox } from './types';
+
+const openModal = ref(false);
+const items = ref<TItemBox[]>([
+   {
+      label: 'Vue',
+      image: '',
+      event: () => console.log('Vue'),
+   },
+   {
+      label: 'React',
+      image: '',
+      event: () => console.log('React'),
+   },
+   {
+      label: 'Express',
+      image: '',
+      event: () => console.log('Express'),
+   },
+]);
+const switches = ref<{ title: string; mark: () => void }[]>([
+   {
+      title: 'Integrate Tailwind',
+      mark: () => console.log('Tailwind'),
+   },
+   {
+      title: 'Integrate ESLint',
+      mark: () => console.log('ESLint'),
+   },
+   {
+      title: 'Integrate Prettier',
+      mark: () => console.log('Prettier'),
+   },
+]);
+
+const chips = ['A', 'Du', 'Dark', 'Wa', 'Di', 'Thoi'];
 </script>
 
 <template>
-  <div class="container">
-    <h1>Welcome to Tauri!</h1>
+   <Button
+      title="Test Button 1"
+      color="primary"
+      @click="openModal = !openModal" />
+   <Button
+      title="Test Button 2"
+      color="secondary" />
+   <Button
+      disabled
+      title="Test Button 2"
+      color="secondary" />
+   <Input />
 
-    <div class="row">
-      <a href="https://vitejs.dev" target="_blank">
-        <img src="/vite.svg" class="logo vite" alt="Vite logo" />
-      </a>
-      <a href="https://tauri.app" target="_blank">
-        <img src="/tauri.svg" class="logo tauri" alt="Tauri logo" />
-      </a>
-      <a href="https://vuejs.org/" target="_blank">
-        <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-      </a>
-    </div>
-
-    <p>Click on the Tauri, Vite, and Vue logos to learn more.</p>
-
-    <p>
-      Recommended IDE setup:
-      <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>
-      +
-      <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-      +
-      <a href="https://github.com/tauri-apps/tauri-vscode" target="_blank"
-        >Tauri</a
-      >
-      +
-      <a href="https://github.com/rust-lang/rust-analyzer" target="_blank"
-        >rust-analyzer</a
-      >
-    </p>
-
-    <Greet />
-  </div>
+   <Modal
+      title="Test Modal 1"
+      :open="openModal"
+      @close="() => (openModal = !openModal)">
+      <List :items="items" />
+   </Modal>
+   <Switch
+      v-for="(item, index) in switches"
+      :key="index"
+      :title="item.title"
+      @mark="item.mark" />
+   <Assignments :items="chips" />
 </template>
-
-<style scoped>
-.logo.vite:hover {
-  filter: drop-shadow(0 0 2em #747bff);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #249b73);
-}
-</style>
