@@ -21,3 +21,7 @@ export type TSwitch = {
    title: string;
    onMark: EventHandler;
 };
+export type TChip = {
+   label: string;
+   onClose: Getter<void>;
+};
