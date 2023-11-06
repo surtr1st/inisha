@@ -16,7 +16,7 @@ import { ref } from 'vue';
 defineProps<Partial<TList>>();
 
 const list = ref({
-   background: components.background.dark,
+   background: components.background.darker,
    color: components.color.default,
    hoverColor: components.hover.dark,
 });
