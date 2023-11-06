@@ -1,5 +1,5 @@
 <template>
-   <input id="i__input" />
+   <input />
 </template>
 
 <script setup lang="ts">
@@ -13,7 +13,7 @@ const input = ref({
 </script>
 
 <style scoped>
-#i__input {
+input {
    width: 100%;
    height: 75px;
    border-radius: 10px;
@@ -25,7 +25,7 @@ const input = ref({
    padding-left: 15px;
    transition: all 250ms;
 }
-#i__input:hover {
+input:hover {
    background: v-bind('input.hoverColor');
 }
 </style>

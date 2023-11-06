@@ -1,6 +1,6 @@
 <template>
    <button
-      id="i__btn"
+      @click="onClick"
       :disabled="disabled">
       {{ title }}
    </button>
@@ -11,7 +11,7 @@ import { TButton } from '../types';
 import { components } from '../configs';
 import { ref } from 'vue';
 
-const { color, disabled } = defineProps<Partial<TButton>>();
+const { color, disabled, onClick } = defineProps<Partial<TButton>>();
 
 const button = ref({
    background: '',
@@ -45,7 +45,7 @@ handleStyle();
 </script>
 
 <style scoped>
-#i__btn {
+button {
    width: auto;
    min-width: 95px;
    max-width: 150px;
@@ -60,7 +60,7 @@ handleStyle();
    padding: 0.7rem;
    margin: 0.5rem 0.5rem 0.5rem 0;
 }
-#i__btn:hover {
+button:hover {
    cursor: pointer;
    background: v-bind('button.hoverColor');
 }
