@@ -25,3 +25,6 @@ export type TChip = {
    label: string;
    onClose: Getter<void>;
 };
+export type TAssignments = {
+   items: string[];
+};
