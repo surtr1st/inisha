@@ -2,7 +2,11 @@
    <span class="chip-box">
       <span id="chip">
          <p>{{ label }}</p>
-         <span class="close-button">&times;</span>
+         <span
+            @click="onClose"
+            class="close-button"
+            >&times;</span
+         >
       </span>
    </span>
 </template>
