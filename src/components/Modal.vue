@@ -53,6 +53,7 @@ const modal = ref({
    justify-content: space-between;
    align-items: center;
    margin: 0.5rem 0.5rem 0 0.7rem;
+   padding: 0 0 0 0.5rem;
    height: 50px;
 }
 
