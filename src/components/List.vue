@@ -1,7 +1,8 @@
 <template>
    <ul>
       <li
-         v-for="item in items"
+         v-for="(item, index) in items"
+         :key="index"
          @click="item.event">
          <h5>{{ item.label }}</h5>
       </li>
