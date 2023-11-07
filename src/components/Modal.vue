@@ -73,6 +73,7 @@ const modal = ref({
 .modal-body {
    display: grid;
    place-items: center;
+   margin: 1.1rem;
 }
 
 #backdrop {
