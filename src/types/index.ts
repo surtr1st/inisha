@@ -28,3 +28,6 @@ export type TChip = {
 export type TAssignments = {
    items: string[];
 };
+export type TProject = {
+   name: string
+}
