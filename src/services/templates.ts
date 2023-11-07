@@ -1,18 +1,27 @@
-import { TItemBox } from "../types";
+import { TItemBox } from '../types';
+import { useRouter } from 'vue-router';
 
-export const templates: TItemBox[] = [
-    {
-        label: 'Vue',
-        image: '',
-        event: createVueTemplate
-    },
-    {
-        label: 'React',
-        image: '',
-        event: createReactTemplate
-    }
-]
+export function useTemplates(): TItemBox[] {
+   const router = useRouter();
 
-function createVueTemplate() {}
+   const createVueTemplate = () => {
+      router.replace({ path: '/select/@vue' });
+   };
 
-function createReactTemplate() {}
+   const createReactTemplate = () => {
+      router.replace({ path: '/select/@react' });
+   };
+
+   return [
+      {
+         label: 'Vue',
+         image: '',
+         event: createVueTemplate,
+      },
+      {
+         label: 'React',
+         image: '',
+         event: createReactTemplate,
+      },
+   ];
+}
