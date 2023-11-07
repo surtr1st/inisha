@@ -14,12 +14,21 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.container {
-  margin: 0;
-  padding-top: 10vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+ }
+
+::-webkit-scrollbar {
+  width: 5px;
 }
 
+::-webkit-scrollbar-thumb {
+  background-color: var(--darker-color);
+  border-radius: 2rem;
+}
+
+::-webkit-scrollbar-track {
+  width: 5px;
+}
