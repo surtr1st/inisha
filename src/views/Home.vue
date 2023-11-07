@@ -53,6 +53,21 @@ const items = ref<TItemBox[]>([
       image: '',
       event: () => console.log(),
    },
+   {
+      label: 'Nuxt',
+      image: '',
+      event: () => console.log(),
+   },
+   {
+      label: 'Nest',
+      image: '',
+      event: () => console.log(),
+   },
+   {
+      label: 'Next',
+      image: '',
+      event: () => console.log(),
+   },
 ]);
 
 const closeModal = () => (open.value = !open.value);
