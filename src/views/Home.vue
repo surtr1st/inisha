@@ -37,7 +37,7 @@ import List from '../components/List.vue';
 
 const open = ref(false);
 
-const [projects, _] = useProject()
+const [projects, _] = useProject();
 
 const closeModal = () => (open.value = !open.value);
 </script>
