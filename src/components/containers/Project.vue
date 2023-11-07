@@ -23,8 +23,8 @@ const project = ref({
 #project {
    display: grid;
    place-items: center;
-   width: 300px;
-   height: 300px;
+   width: 200px;
+   height: 200px;
    border-radius: 10px;
    background: v-bind('project.background');
    transition: all 250ms;
