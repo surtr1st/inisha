@@ -29,5 +29,10 @@ export type TAssignments = {
    items: string[];
 };
 export type TProject = {
-   name: string
-}
+   name: string;
+};
+export type TInput = {
+   name: string;
+   modelValue: string;
+   placeholder: string;
+};
