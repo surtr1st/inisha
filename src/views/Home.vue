@@ -15,12 +15,12 @@
             :open="open"
             title="Create project"
             @close="closeModal">
-            <List :items="items" />
+            <List :items="templates" />
          </Modal>
       </section>
       <section class="home-body">
          <Project
-            v-for="project in projects"
+            v-for="project in projects()"
             :key="project"
             :name="project" />
       </section>
@@ -29,58 +29,15 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { templates, useProject } from '../services';
 import Button from '../components/Button.vue';
 import Modal from '../components/Modal.vue';
 import Project from '../components/containers/Project.vue';
 import List from '../components/List.vue';
-import { TItemBox } from '../types';
 
-const projects = [
-   'Vue-Test',
-   'XXX-D',
-   'Adudarkwa',
-   'Vue-Test',
-   'XXX-D',
-   'Adudarkwa',
-   'Vue-Test',
-   'XXX-D',
-   'Adudarkwa',
-
-   'Adudarkwa',
-];
 const open = ref(false);
-const items = ref<TItemBox[]>([
-   {
-      label: 'Vue',
-      image: '',
-      event: () => console.log(),
-   },
-   {
-      label: 'React',
-      image: '',
-      event: () => console.log(),
-   },
-   {
-      label: 'Express',
-      image: '',
-      event: () => console.log(),
-   },
-   {
-      label: 'Nuxt',
-      image: '',
-      event: () => console.log(),
-   },
-   {
-      label: 'Nest',
-      image: '',
-      event: () => console.log(),
-   },
-   {
-      label: 'Next',
-      image: '',
-      event: () => console.log(),
-   },
-]);
+
+const [projects, _] = useProject()
 
 const closeModal = () => (open.value = !open.value);
 </script>
@@ -103,8 +60,7 @@ const closeModal = () => (open.value = !open.value);
    overflow-y: auto;
    display: grid;
    grid-column: 1 / 2;
-   grid-template-columns: auto auto auto auto auto;
-   row-gap: 15px;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
    place-items: center;
 }
 
@@ -117,3 +73,4 @@ const closeModal = () => (open.value = !open.value);
    padding-right: 1rem;
 }
 </style>
+../services
