@@ -27,8 +27,8 @@ const list = ref({
 ul {
    width: 100%;
    display: flex;
-   align-items: center;
-   gap: 0.5rem;
+   flex-wrap: wrap;
+   gap: 1.1rem;
    background: inherit;
 }
 
