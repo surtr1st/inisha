@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { templates, useProject } from '../services';
+import { useTemplates, useProject } from '../services';
 import Button from '../components/Button.vue';
 import Modal from '../components/Modal.vue';
 import Project from '../components/containers/Project.vue';
@@ -38,6 +38,7 @@ import List from '../components/List.vue';
 const open = ref(false);
 
 const [projects, _] = useProject();
+const templates = useTemplates();
 
 const closeModal = () => (open.value = !open.value);
 </script>
