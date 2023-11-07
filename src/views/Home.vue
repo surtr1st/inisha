@@ -35,7 +35,19 @@ import Project from '../components/containers/Project.vue';
 import List from '../components/List.vue';
 import { TItemBox } from '../types';
 
-const projects = ['Vue-Test', 'XXX-D', 'Adudarkwa'];
+const projects = [
+   'Vue-Test',
+   'XXX-D',
+   'Adudarkwa',
+   'Vue-Test',
+   'XXX-D',
+   'Adudarkwa',
+   'Vue-Test',
+   'XXX-D',
+   'Adudarkwa',
+
+   'Adudarkwa',
+];
 const open = ref(false);
 const items = ref<TItemBox[]>([
    {
@@ -75,18 +87,25 @@ const closeModal = () => (open.value = !open.value);
 
 <style scoped>
 .home-header {
-   height: 10vh;
+   height: 12vh;
    text-align: center;
-   margin-bottom: 0.5rem;
+   margin: 2.1rem 0 0.5rem 0;
+}
+
+.home-header > h1 {
+   font-size: 48px;
 }
 
 .home-body {
    height: 80vh;
-   display: flex;
-   justify-content: flex-start;
-   align-items: flex-start;
-   gap: 15px;
-   padding: 1rem;
+   margin: 2.1px;
+   overflow-x: hidden;
+   overflow-y: auto;
+   display: grid;
+   grid-column: 1 / 2;
+   grid-template-columns: auto auto auto auto auto;
+   row-gap: 15px;
+   place-items: center;
 }
 
 .home-toolbar {
