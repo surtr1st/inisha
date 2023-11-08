@@ -44,3 +44,7 @@ export type TIntegration = {
      value: string;
      included: boolean;
 };
+export type TTitle = {
+     value: string;
+     to: string;
+};
