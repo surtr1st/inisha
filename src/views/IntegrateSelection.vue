@@ -41,7 +41,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { GLOBAL_INTEGRATIONS, PACKAGE_MANAGERS } from '../data/index.js';
 import { useIntegrations } from '../services/index.js';
 import Input from '../components/Input.vue.js';
@@ -50,12 +50,25 @@ import Assignments from '../components/containers/Assignments.vue.js';
 import Switch from '../components/Switch.vue.js';
 
 const { replace } = useRouter();
-const [integrates, update] = useIntegrations([
-     ...GLOBAL_INTEGRATIONS,
-     ...PACKAGE_MANAGERS,
-]);
+const { params } = useRoute();
+const [integrates, update] = useIntegrations(selectFromId());
+
 const projectName = ref('');
 const selectedIntegrate = ref('');
+
+function selectFromId() {
+     const id = params.template;
+     switch (id) {
+          case '@vue':
+               return [...GLOBAL_INTEGRATIONS, ...PACKAGE_MANAGERS];
+          case '@react':
+               return [...GLOBAL_INTEGRATIONS, ...PACKAGE_MANAGERS];
+          case '@svelte':
+               return [...GLOBAL_INTEGRATIONS, ...PACKAGE_MANAGERS];
+          default:
+               return PACKAGE_MANAGERS;
+     }
+}
 
 watch(selectedIntegrate, () => {
      if (selectedIntegrate.value === '') return;
