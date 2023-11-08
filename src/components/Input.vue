@@ -1,10 +1,21 @@
 <template>
-   <input />
+   <input
+      type="text"
+      :name="name"
+      :placeholder="placeholder"
+      :value="modelValue"
+      @input="
+         $emit('update:modelValue', ($event.target as HTMLInputElement).value)
+      " />
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import { components } from '../configs';
+import { TInput } from '../types';
+
+defineProps<Partial<TInput>>();
+defineEmits(['update:modelValue']);
 
 const input = ref({
    background: components.background.dark,

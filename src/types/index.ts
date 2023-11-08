@@ -19,6 +19,9 @@ export type TItemBox = {
 };
 export type TSwitch = {
    title: string;
+   value: string;
+   modelValue: string;
+   checked: boolean;
    onMark: EventHandler;
 };
 export type TChip = {
@@ -27,4 +30,17 @@ export type TChip = {
 };
 export type TAssignments = {
    items: string[];
+};
+export type TProject = {
+   name: string;
+};
+export type TInput = {
+   name: string;
+   modelValue: string;
+   placeholder: string;
+};
+export type TIntegration = {
+   alias: string;
+   value: string;
+   included: boolean;
 };

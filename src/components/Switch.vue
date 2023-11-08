@@ -3,7 +3,9 @@
       <label class="switch">
          <input
             type="checkbox"
-            @change="onMark" />
+            :value="modelValue"
+            :checked="checked"
+            @change="$emit('update:modelValue', value)" />
          <span class="slider round"></span>
       </label>
       <h3>
@@ -18,6 +20,7 @@ import { components } from '../configs';
 import { TSwitch } from '../types';
 
 defineProps<Partial<TSwitch>>();
+defineEmits(['update:modelValue']);
 
 const switcher = ref({
    background: components.background.dark1,

@@ -38,5 +38,7 @@ const deleteSelectedChip = (index: number) => chips.value?.splice(index, 1);
    color: v-bind('assignments.color');
    padding: 15px;
    transition: all 250ms;
+   border-radius: 10px;
+   margin: 0.5rem 0 0.5rem 0;
 }
 </style>

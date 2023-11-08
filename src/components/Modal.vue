@@ -33,10 +33,10 @@ const modal = ref({
 
 <style scoped>
 #modal {
-   min-width: 500px;
-   max-width: 700px;
-   min-height: 500px;
-   max-height: 700px;
+   min-width: 300px;
+   max-width: 500px;
+   min-height: 300px;
+   max-height: 500px;
    border-radius: 10px;
    background: v-bind('modal.background');
    color: v-bind('modal.color');
@@ -73,6 +73,7 @@ const modal = ref({
 .modal-body {
    display: grid;
    place-items: center;
+   margin: 1.1rem;
 }
 
 #backdrop {
