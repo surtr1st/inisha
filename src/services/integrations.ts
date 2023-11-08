@@ -6,7 +6,7 @@ export function useIntegrations(
 ): MutableList<TIntegration[], number> {
      const list = ref<TIntegration[]>(integrations);
 
-     const integrates = computed(() => list.value);
+     const integrates: Getter<TIntegration[]> = computed(() => list.value);
 
      const update: Setter<number> = (index: number) => {
           const target = list.value[index];
