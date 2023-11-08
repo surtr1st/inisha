@@ -20,7 +20,7 @@
           </section>
           <section class="home-body">
                <Project
-                    v-for="project in projects()"
+                    v-for="project in projects"
                     :key="project"
                     :name="project" />
           </section>
@@ -48,10 +48,6 @@ const closeModal = () => (open.value = !open.value);
      height: 12vh;
      text-align: center;
      margin: 2.1rem 0 0.5rem 0;
-}
-
-.home-header > h1 {
-     font-size: 48px;
 }
 
 .home-body {
