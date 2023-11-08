@@ -15,7 +15,7 @@ export type TList = {
 export type TItemBox = {
      label: string;
      image: string;
-     event: Getter<void>;
+     event: EventHandler;
 };
 export type TSwitch = {
      title: string;
