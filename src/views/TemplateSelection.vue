@@ -9,6 +9,15 @@
                name="project-name"
                placeholder="Name"
                v-model="projectName" />
+            <div class="project-integrates">
+               <Switch
+                  v-for="(integrate, index) in integrates"
+                  :key="index"
+                  :title="integrate.alias"
+                  :value="integrate.value"
+                  :checked="integrate.included"
+                  v-model="selectedIntegrate" />
+            </div>
          </div>
          <div class="template-extra">
             <Input
@@ -31,14 +40,28 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
+import { GLOBAL_INTEGRATIONS } from '../data';
+import { useIntegrations } from '../services';
 import Input from '../components/Input.vue';
 import Button from '../components/Button.vue';
 import Assignments from '../components/containers/Assignments.vue';
+import Switch from '../components/Switch.vue';
 
 const { replace } = useRouter();
+const [integrates, update] = useIntegrations(GLOBAL_INTEGRATIONS);
 const projectName = ref('');
+const selectedIntegrate = ref('');
+
+watch(selectedIntegrate, () => {
+   if (selectedIntegrate.value === '') return;
+   const index = integrates.value.findIndex(
+      (integrate) => integrate.value === selectedIntegrate.value,
+   );
+   update(index);
+   selectedIntegrate.value = '';
+});
 </script>
 
 <style scoped>
@@ -64,6 +87,13 @@ const projectName = ref('');
       'selection selection selection extra extra extra'
       'footer footer footer footer footer footer';
    place-items: center;
+}
+
+.project-integrates {
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+   flex-direction: column;
 }
 
 .template-selection,
