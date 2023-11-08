@@ -8,9 +8,9 @@
                     @change="$emit('update:modelValue', value)" />
                <span class="slider round"></span>
           </label>
-          <h3>
+          <h5>
                {{ title }}
-          </h3>
+          </h5>
      </div>
 </template>
 
@@ -44,8 +44,8 @@ const switcher = ref({
 .switch {
      position: relative;
      display: inline-block;
-     width: 90px;
-     height: 50px;
+     width: 50px;
+     height: 30px;
      outline: none;
 }
 
@@ -71,8 +71,8 @@ const switcher = ref({
 .slider:before {
      position: absolute;
      content: '';
-     height: 40px;
-     width: 40px;
+     height: 20px;
+     width: 20px;
      left: -1px;
      bottom: -1px;
      background-color: v-bind('switcher.background');
@@ -85,14 +85,10 @@ input:checked + .slider {
      background-color: v-bind('switcher.activeBackground');
 }
 
-input:focus + .slider {
-     box-shadow: 0 0 1px #2196f3;
-}
-
 input:checked + .slider:before {
-     -webkit-transform: translateX(40px);
-     -ms-transform: translateX(40px);
-     transform: translateX(40px);
+     -webkit-transform: translateX(20px);
+     -ms-transform: translateX(20px);
+     transform: translateX(20px);
 }
 .slider.round {
      border-radius: 30px;
