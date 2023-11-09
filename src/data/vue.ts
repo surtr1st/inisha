@@ -2,12 +2,12 @@ import { TIntegration } from '../types';
 
 export const VUE_VERSIONS: TIntegration[] = [
      {
-          alias: 'Use Vue 2',
+          alias: 'Vue 2',
           value: 'vue2',
           included: false,
      },
      {
-          alias: 'Use Vue 3',
+          alias: 'Vue 3',
           value: 'vue3',
           included: false,
      },
