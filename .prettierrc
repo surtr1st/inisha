@@ -1,8 +1,9 @@
 {
-   "semi": true,
-   "endOfLine": "lf",
-   "singleQuote": true,
-   "singleAttributePerLine": true,
-   "bracketSameLine": true,
-   "tabWidth": 3
+    "semi": true,
+    "endOfLine": "auto",
+    "singleQuote": true,
+    "singleAttributePerLine": true,
+    "bracketSameLine": true,
+    "tabWidth": 5,
+    "trailingComma": "all"
 }

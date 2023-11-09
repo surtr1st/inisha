@@ -1,11 +1,11 @@
 <template>
-   <div class="chips">
-      <Chip
-         v-for="(item, index) in chips"
-         :key="item"
-         :label="item"
-         @close="deleteSelectedChip(index)" />
-   </div>
+     <div class="chips">
+          <Chip
+               v-for="(item, index) in chips"
+               :key="item"
+               :label="item"
+               @close="deleteSelectedChip(index)" />
+     </div>
 </template>
 
 <script setup lang="ts">
@@ -18,8 +18,8 @@ const { items } = defineProps<Partial<TAssignments>>();
 
 const chips = ref(items);
 const assignments = ref({
-   background: components.background.dark,
-   color: components.color.default,
+     background: components.background.dark,
+     color: components.color.default,
 });
 
 const deleteSelectedChip = (index: number) => chips.value?.splice(index, 1);
@@ -27,18 +27,18 @@ const deleteSelectedChip = (index: number) => chips.value?.splice(index, 1);
 
 <style scoped>
 .chips {
-   display: flex;
-   gap: 5px;
-   width: 100%;
-   height: 300px;
-   max-height: 350px;
-   overflow-x: hidden;
-   overflow-y: auto;
-   background: v-bind('assignments.background');
-   color: v-bind('assignments.color');
-   padding: 15px;
-   transition: all 250ms;
-   border-radius: 10px;
-   margin: 0.5rem 0 0.5rem 0;
+     display: flex;
+     gap: 5px;
+     width: 100%;
+     height: 300px;
+     max-height: 350px;
+     overflow-x: hidden;
+     overflow-y: auto;
+     background: v-bind('assignments.background');
+     color: v-bind('assignments.color');
+     padding: 15px;
+     transition: all 250ms;
+     border-radius: 10px;
+     margin: 0.5rem 0 0.5rem 0;
 }
 </style>
