@@ -64,7 +64,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { GLOBAL_INTEGRATIONS, PACKAGE_MANAGERS } from '../data';
+import { GLOBAL_INTEGRATIONS, PACKAGE_MANAGERS, VUE_OPTIONS } from '../data';
 import { useIntegrations } from '../services';
 import Input from '../components/Input.vue';
 import Button from '../components/Button.vue';
@@ -75,9 +75,8 @@ import Title from '../components/Title.vue';
 const { replace } = useRouter();
 const { params } = useRoute();
 const [integrates, updateIntegrate] = useIntegrations(selectIntegratesFromId());
-const [packageManagers, updatePackageManager] = useIntegrations(
-     selectManagersFromId(),
-);
+const [packageManagers, updatePackageManager] =
+     useIntegrations(PACKAGE_MANAGERS);
 
 const projectName = ref('');
 const selectedIntegrate = ref('');
@@ -87,19 +86,9 @@ function selectIntegratesFromId() {
      const id = params.template;
      switch (id) {
           case '@vue':
-               return GLOBAL_INTEGRATIONS;
+               return [...GLOBAL_INTEGRATIONS, ...VUE_OPTIONS];
           default:
                return GLOBAL_INTEGRATIONS;
-     }
-}
-
-function selectManagersFromId() {
-     const id = params.template;
-     switch (id) {
-          case '@vue':
-               return PACKAGE_MANAGERS;
-          default:
-               return PACKAGE_MANAGERS;
      }
 }
 
