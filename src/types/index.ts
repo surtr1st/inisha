@@ -49,3 +49,7 @@ export type TTitle = {
      value: string;
      to: string;
 };
+export type TRadio = {
+     title: string;
+     value: boolean | string;
+};
