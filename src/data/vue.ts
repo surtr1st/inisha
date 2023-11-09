@@ -1,15 +1,13 @@
-import { TIntegration } from '../types';
+import { TIntegration, TListIntegrationOmit } from '../types';
 
-export const VUE_VERSIONS: TIntegration[] = [
+export const VUE_VERSIONS: TListIntegrationOmit<'included'> = [
      {
           alias: 'Vue 2',
           value: 'vue2',
-          included: false,
      },
      {
           alias: 'Vue 3',
           value: 'vue3',
-          included: false,
      },
 ];
 
