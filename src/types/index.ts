@@ -48,8 +48,12 @@ export type TIntegration = {
 export type TTitle = {
      value: string;
      to: string;
+     class: string;
 };
 export type TRadio = {
      title: string;
      value: boolean | string;
 };
+export type TListIntegrationOmit<K extends keyof TIntegration> = Array<
+     Omit<TIntegration, K>
+>;

@@ -1,7 +1,9 @@
 <template>
-     <label :for="to">{{ value }}</label>
-     <div class="title-wrapper">
-          <slot />
+     <div :class="class">
+          <label :for="to">{{ value }}</label>
+          <div class="title-wrapper">
+               <slot />
+          </div>
      </div>
 </template>
 
