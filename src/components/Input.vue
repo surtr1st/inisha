@@ -1,9 +1,11 @@
 <template>
      <input
+          ref="textbox"
           type="text"
           :name="name"
           :placeholder="placeholder"
           :value="modelValue"
+          @keydown="handleKeydown"
           @input="
                $emit(
                     'update:modelValue',
@@ -17,7 +19,7 @@ import { ref } from 'vue';
 import { components } from '../configs';
 import { TInput } from '../types';
 
-defineProps<Partial<TInput>>();
+const { onEnter } = defineProps<Partial<TInput>>();
 defineEmits(['update:modelValue']);
 
 const input = ref({
@@ -25,6 +27,18 @@ const input = ref({
      hoverColor: components.hover.dark,
      color: components.color.default,
 });
+
+const textbox = ref<HTMLInputElement | null>(null);
+
+function handleKeydown(event: KeyboardEvent) {
+     const target = textbox.value;
+     if (target) {
+          if (event.key === 'Enter') {
+               (() => onEnter && onEnter())();
+               target.value = '';
+          }
+     }
+}
 </script>
 
 <style scoped>

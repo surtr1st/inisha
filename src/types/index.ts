@@ -38,6 +38,7 @@ export type TInput = {
      name: string;
      modelValue: string;
      placeholder: string;
+     onEnter: EventHandler;
 };
 export type TIntegration = {
      alias: string;
