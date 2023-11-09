@@ -34,7 +34,7 @@
                               :title="manager.alias"
                               :value="manager.value"
                               :checked="manager.included"
-                              v-model="selectedIntegrate" />
+                              v-model="selectedManager" />
                     </Title>
                </div>
                <div class="template-extra">
@@ -81,6 +81,7 @@ const [packageManagers, updatePackageManager] = useIntegrations(
 
 const projectName = ref('');
 const selectedIntegrate = ref('');
+const selectedManager = ref('');
 
 function selectIntegratesFromId() {
      const id = params.template;
@@ -109,6 +110,15 @@ watch(selectedIntegrate, () => {
      );
      updateIntegrate(index);
      selectedIntegrate.value = '';
+});
+
+watch(selectedManager, () => {
+     if (selectedManager.value === '') return;
+     const index = packageManagers.value.findIndex(
+          (manager) => manager.value === selectedManager.value,
+     );
+     updatePackageManager(index);
+     selectedManager.value = '';
 });
 </script>
 
