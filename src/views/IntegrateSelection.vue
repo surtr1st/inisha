@@ -2,6 +2,16 @@
      <main>
           <section class="template-header">
                <h1>INTEGRATE SELECTION</h1>
+               <div class="template-buttons">
+                    <Button
+                         title="Back"
+                         color="secondary"
+                         @click="replace('/')" />
+                    <Button
+                         title="Next"
+                         color="primary"
+                         @click="replace('/')" />
+               </div>
           </section>
           <section class="template-body">
                <div class="template-selection">
@@ -55,16 +65,6 @@
                               placeholder="Dependency" />
                          <Assignments />
                     </Title>
-               </div>
-               <div class="template-buttons">
-                    <Button
-                         title="Back"
-                         color="secondary"
-                         @click="replace('/')" />
-                    <Button
-                         title="Next"
-                         color="primary"
-                         @click="replace('/')" />
                </div>
           </section>
      </main>
@@ -133,7 +133,7 @@ watch(radioModel, () => update(radioModel.value));
 
 <style scoped>
 .template-header {
-     height: 10vh;
+     height: 12vh;
      text-align: center;
      margin: 2.1rem 0 0.5rem 0;
 }
@@ -149,8 +149,7 @@ watch(radioModel, () => update(radioModel.value));
      grid-template-areas:
           'ni ni extra extra'
           'it pm extra extra'
-          'it pm extra extra'
-          'footer footer footer footer';
+          'it pm extra extra';
 }
 
 .project-name {
@@ -177,11 +176,11 @@ watch(radioModel, () => update(radioModel.value));
 }
 
 .template-buttons {
-     grid-area: footer;
      width: 100%;
      display: flex;
      justify-content: flex-end;
      align-items: center;
      gap: 10px;
+     padding-right: 1rem;
 }
 </style>
