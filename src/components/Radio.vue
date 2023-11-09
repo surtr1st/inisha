@@ -54,6 +54,7 @@ const radio = ref({
      width: 25px;
      background-color: v-bind('radio.background');
      border-radius: 50%;
+     transition: all 250ms;
 }
 
 .container:hover input ~ .checkmark {
