@@ -14,6 +14,15 @@
                               placeholder="Name"
                               v-model="projectName" />
                     </Title>
+                    <Title value="Version">
+                         <RadioGroup v-model="radioModel">
+                              <Radio
+                                   v-for="(version, index) in versions"
+                                   :key="index"
+                                   :value="version.value"
+                                   :title="version.alias" />
+                         </RadioGroup>
+                    </Title>
                     <Title
                          value="Integrations"
                          class="project-integrates">
@@ -64,23 +73,32 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { GLOBAL_INTEGRATIONS, PACKAGE_MANAGERS, VUE_OPTIONS } from '../data';
+import {
+     GLOBAL_INTEGRATIONS,
+     PACKAGE_MANAGERS,
+     VUE_VERSIONS,
+     VUE_OPTIONS,
+} from '../data';
 import { useIntegrations } from '../services';
 import Input from '../components/Input.vue';
 import Button from '../components/Button.vue';
 import Assignments from '../components/containers/Assignments.vue';
 import Switch from '../components/Switch.vue';
 import Title from '../components/Title.vue';
+import RadioGroup from '../components/RadioGroup.vue';
+import Radio from '../components/Radio.vue';
 
 const { replace } = useRouter();
 const { params } = useRoute();
 const [integrates, updateIntegrate] = useIntegrations(selectIntegratesFromId());
 const [packageManagers, updatePackageManager] =
      useIntegrations(PACKAGE_MANAGERS);
+const [versions, updateVersions] = useIntegrations(VUE_VERSIONS);
 
 const projectName = ref('');
 const selectedIntegrate = ref('');
 const selectedManager = ref('');
+const radioModel = ref('');
 
 function selectIntegratesFromId() {
      const id = params.template;
@@ -109,6 +127,7 @@ watch(selectedManager, () => {
      updatePackageManager(index);
      selectedManager.value = '';
 });
+watch(radioModel, () => console.log(radioModel.value));
 </script>
 
 <style scoped>
