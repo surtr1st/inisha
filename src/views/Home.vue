@@ -70,4 +70,3 @@ const closeModal = () => (open.value = !open.value);
      padding-right: 1rem;
 }
 </style>
-../services
