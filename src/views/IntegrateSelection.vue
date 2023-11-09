@@ -17,7 +17,7 @@
                     <Title value="Version">
                          <RadioGroup v-model="radioModel">
                               <Radio
-                                   v-for="(version, index) in versions"
+                                   v-for="(version, index) in items"
                                    :key="index"
                                    :value="version.value"
                                    :title="version.alias" />
@@ -79,7 +79,7 @@ import {
      VUE_VERSIONS,
      VUE_OPTIONS,
 } from '../data';
-import { useIntegrations } from '../services';
+import { useIntegrations, useSingleSelection } from '../services';
 import Input from '../components/Input.vue';
 import Button from '../components/Button.vue';
 import Assignments from '../components/containers/Assignments.vue';
@@ -93,7 +93,7 @@ const { params } = useRoute();
 const [integrates, updateIntegrate] = useIntegrations(selectIntegratesFromId());
 const [packageManagers, updatePackageManager] =
      useIntegrations(PACKAGE_MANAGERS);
-const [versions, updateVersions] = useIntegrations(VUE_VERSIONS);
+const { items, update } = useSingleSelection(VUE_VERSIONS);
 
 const projectName = ref('');
 const selectedIntegrate = ref('');
@@ -127,7 +127,8 @@ watch(selectedManager, () => {
      updatePackageManager(index);
      selectedManager.value = '';
 });
-watch(radioModel, () => console.log(radioModel.value));
+
+watch(radioModel, () => update(radioModel.value));
 </script>
 
 <style scoped>
